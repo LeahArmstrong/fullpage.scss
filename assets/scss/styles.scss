@@ -1,0 +1,84 @@
+$number: 6;
+$animation_delay: 5 * $number;
+
+/* DO NOT EDIT ANYTHING BELOW THIS LINE */
+
+
+$percent: 100%/$number;
+$percent_persistent: $percent;
+$increment: 1;
+
+@-webkit-keyframes slideranimation {
+	0%, 100% {left: 0%;}
+	#{$percent / 1.2} {left: 0%;}
+	@while $percent < 100% {
+		#{$percent} { left: -100% * $increment; }
+		#{$percent + ($percent_persistent / 1.2%)} { left: -100% * $increment; }
+		$increment: $increment + 1;
+		$percent: $percent_persistent * $increment;
+	}
+}
+
+@mixin animation {
+	animation: slideranimation #{$animation_delay}s ease-out infinite;
+		-webkit-animation: slideranimation #{$animation_delay}s ease-out infinite;
+		-moz-animation: slideranimation #{$animation_delay}s ease-out infinite;
+
+	backface-visibility: hidden; 
+		-webkit-backface-visibility: hidden;
+		-moz-backface-visibility: hidden;
+		-ms-backface-visibility: hidden;
+}
+
+html, body {
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+section {
+	margin: 0 auto;
+	padding: 0;
+	position: relative;
+	width: 100%;
+	min-height: 100%;
+	height: 100%;
+	text-align: center;
+	overflow: hidden;
+	display: table;
+
+	.slider {
+		height: 100%;
+		
+		.slides {
+			overflow: hidden;
+			position: relative;
+			float: left;
+			width: 100%*$number;
+			height: 100%;
+			@include animation;
+
+			section {
+				width: $percent_persistent + .0001%; // Fixes edge of next slide showing in some ratios
+				float: left;
+				display: table;
+				position: relative;
+
+				.content {
+
+					&:hover {
+						-webkit-animation-play-state: paused;
+					}
+				}
+			}
+		}
+	}
+
+	.content {
+		display: table-cell;
+		vertical-align: middle;
+		text-align: center;
+	}
+}
+
+@import "demo";
