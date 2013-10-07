@@ -1,84 +1,125 @@
-$number: 6;
-$animation_delay: 5 * $number;
+// This sheet isn't as clean as the other. I'll work on cleaning this up soon. It's really just the demo page styling anyway.
 
-/* DO NOT EDIT ANYTHING BELOW THIS LINE */
+$number: 6; // Set your number of slides
+$animation_delay: 6; // Adjust your delay. It takes the number of slides and multiplies it by this variable in order to get full duration of the animation.
+$inset-text-shadow: 0px -1px 0px #111;
 
+@mixin pre-wrap {
+	white-space: pre-wrap;
+		white-space: -moz-pre-wrap;
+		white-space: -pre-wrap;
+		white-space: -o-pre-wrap;
+		word-wrap: break-word;
+}
 
-$percent: 100%/$number;
-$percent_persistent: $percent;
-$increment: 1;
+@import "fullpage";
+@import "fonts";
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
-@-webkit-keyframes slideranimation {
-	0%, 100% {left: 0%;}
-	#{$percent / 1.2} {left: 0%;}
-	@while $percent < 100% {
-		#{$percent} { left: -100% * $increment; }
-		#{$percent + ($percent_persistent / 1.2%)} { left: -100% * $increment; }
-		$increment: $increment + 1;
-		$percent: $percent_persistent * $increment;
+h2 {
+	margin-top: 0px;
+}
+
+a {
+	color: white;
+	text-decoration: none;
+	display: inline-block;
+	border-bottom: 1px solid white;
+	line-height: 1;
+
+	&.icon {
+		border-bottom: none;
 	}
 }
 
-@mixin animation {
-	animation: slideranimation #{$animation_delay}s ease-out infinite;
-		-webkit-animation: slideranimation #{$animation_delay}s ease-out infinite;
-		-moz-animation: slideranimation #{$animation_delay}s ease-out infinite;
-
-	backface-visibility: hidden; 
-		-webkit-backface-visibility: hidden;
-		-moz-backface-visibility: hidden;
-		-ms-backface-visibility: hidden;
-}
-
-html, body {
-	height: 100%;
-	margin: 0px;
-	padding: 0px;
+i {
+	font-size: 80px;
 }
 
 section {
-	margin: 0 auto;
-	padding: 0;
-	position: relative;
-	width: 100%;
-	min-height: 100%;
-	height: 100%;
-	text-align: center;
-	overflow: hidden;
-	display: table;
 
-	.slider {
-		height: 100%;
-		
-		.slides {
-			overflow: hidden;
-			position: relative;
-			float: left;
-			width: 100%*$number;
-			height: 100%;
-			@include animation;
+	font-size: 30px;
+	color: white;
+	text-shadow: $inset-text-shadow;
+	font-family: 'Open Sans', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-weight: 400;
 
-			section {
-				width: $percent_persistent + .0001%; // Fixes edge of next slide showing in some ratios
+	.content {
+
+		pre {
+			display: inline-block;
+			max-width: 80%;
+			@include pre-wrap;
+
+			code {
+				width: 100%;
+				font-size: 20px;
+				text-align: left !important;
+				line-height: 20px;
 				float: left;
-				display: table;
-				position: relative;
+				padding: 20px;
+				background: whitesmoke;
+				text-shadow: none;
+				color: black;
+				
+				.div {
+					color: limegreen;
+				}
 
-				.content {
+				.class {
+					color: violet;
+				}
 
-					&:hover {
-						-webkit-animation-play-state: paused;
-					}
+				.variable {
+					color: red;
+				}
+
+				.comment {
+					color: slategray;
 				}
 			}
 		}
 	}
 
-	.content {
-		display: table-cell;
-		vertical-align: middle;
-		text-align: center;
+
+	&#one {
+		background-color: #2C3E50;
+	}
+
+	&#two {
+		background-color: #FC4349;
+	}
+
+	&#three {
+		background-color: #6DBCDB;
+	}
+
+	&#four {
+		background-color: #00AA8F;
+	}
+
+	&#five {
+		background-color: #FFFFFF;
+	}
+
+	&#six {
+		background-color: #006266;
+	}
+
+	.slider {
+		
+		.slides {
+
+			section {
+
+				&#two {
+					background-color: #E6A73F;
+				}
+				&#five {
+					background: url('http://www.fillmurray.com/1200/1000') center center;
+					background-size: cover;
+				}
+			}
+		}
 	}
 }
-
-@import "demo";

@@ -14,35 +14,32 @@
 			<div class="slides">
 				<section id="one">
 					<div class="content">
-						<p>Hello There.</p>
+						<p>Make Full-Page SASS/SCSS Sections and Sliders With fullpage.scss</p>
 					</div>
 				</section>
 				<section id="two">
 					<div class="content">
-						<p>Goodbye</p>
+						<p>No JS Required</p>
 					</div>
 				</section>
 				<section id="three">
 					<div class="content">
-						<p>Hello again</p>
+						<p>Easy to use, adaptable SCSS</p>
 					</div>
 				</section>
 				<section id="four">
 					<div class="content">
-						<p>Goodbye again</p>
-						<p><img src="http://www.fillmurray.com/200/700"></p>
+						<p>Generates animation keyframes automatically for as many slides as you need</p>
 					</div>
 				</section>
 				<section id="five">
 					<div class="content">
-						<p>Hello again again</p>
-						<p><img src="http://www.fillmurray.com/600/300"></p>
+						<p>Capable of using background images</p>
 					</div>
 				</section>
 				<section id="six">
 					<div class="content">
-						<p>Goodbye again again again</p>
-						<p><img src="http://www.fillmurray.com/400/300"></p>
+						<p>Fluid width for responsive sites</p>
 					</div>
 				</section>
 			</div>
@@ -50,22 +47,53 @@
 	</section>
 	<section id="two">
 		<div class="content">
-			<p>Hello There.</p>
+			<h2>Setting up your SCSS/SASS</h2>
+
+			<p>
+				<pre><code>
+<span class="comment">// To get going, you need to either uncomment and use the first two variables in fullpage.scss or (if you prefer not to edit plugin files) define two variables in your stylesheet.</span>
+
+<span class="div">$number</span>: <span class="variable">#</span>;
+<span class="comment">// Set # as your number of slides</span><br>
+<span class="div">$animation_delay</span>: <span class="variable">#</span>;
+<span class="comment">// Set # to adjust your delay. It takes the number of slides and multiplies it by this variable in order to get full duration of the animation.</span>
+				</code></pre>
+			</p>
+
+			<p>
+			</p>
 		</div>
 	</section>
 	<section id="three">
 		<div class="content">
-			<p>Hello There.</p>
+			<h2>Setting up your HTML</h2>
+				<pre><code>
+<span class="comment">&#60;!-- For full screen sections --&#62;</span>
+&#60;<span class="div">section</span>&#62;
+  &#60;<span class="div">div</span> class="<span class="class">content</span>"&#62;
+  &#60;/<span class="div">div</span>&#62;
+&#60;/<span class="div">section</span>&#62;
+
+<span class="comment">&#60;!-- For full screen sliders --&#62;</span>
+&#60;<span class="div">section</span>&#62;
+  &#60;<span class="div">div</span> class="<span class="class">slider</span>"&#62;
+    &#60;<span class="div">div</span> class="<span class="class">slides</span>"&#62;
+      &#60;<span class="div">section</span>&#62;<span class="comment">&#60;!-- This level is a slide --&#62;</span>
+        &#60;<span class="div">div</span> class="<span class="class">content</span>"&#62;
+        &#60;/<span class="div">div</span>&#62;
+      &#60;/<span class="div">section</span>&#62;
+    &#60;/<span class="div">div</span>&#62;
+  &#60;/<span class="div">div</span>&#62;
+&#60;/<span class="div">section</span>&#62;
+				</code></pre>
+			</p>
 		</div>
 	</section>
 	<section id="four">
 		<div class="content">
-			<p>Hello There.</p>
-		</div>
-	</section>
-	<section id="five">
-		<div class="content">
-			<p>Hello There.</p>
+			<a href="#" class="icon"><i class="icon-github"></i></a>
+			<h2><a href="#">Git it on Github</a></h2>
+			<p>Please keep in mind this is mostly for conceptual purposes, and as a personal challenge. It will likely only work on modern browsers, although I have checked that it works in Chrome, Safari, and Firefox's latest versions. I've yet to do any browser serious testing, so if you find any issues, let me know on the repo. If you use this, please let me know via <a href="mailto:dustin@dustinarmstrong.com">email</a> or <a href="http://www.twitter.com/dustinarmstrong">Twitter</a></p>
 		</div>
 	</section>
 </body>

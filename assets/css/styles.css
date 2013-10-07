@@ -1,5 +1,205 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+/* 	FullPage.scss
+	Created by Dustin Armstrong
+	October 7, 2013
+
+	http://www.dustinarmstrong.com
+	http://www.github.com/dustinarmstrong */
+/* Uncomment the two lines below to use the variables inside the fullscreen.scss file, 
+or you may use them in your main/variables/mixins styles file. To import this stylesheet,
+just make sure it is in the same directory, and use @import "fullscreen"; */
+/* ------------------------------------ */
 /* DO NOT EDIT ANYTHING BELOW THIS LINE */
+/* DOING SO MAY BREAK THE CODE -------- */
+/* TRUST ME, IT'S VERY PICKY ---------- */
+/* ------------------------------------ */
+/* Dynamically generates keyframes and pauses based on slides $number */
 @-webkit-keyframes slideranimation {
+  0%, 100% {
+    left: 0%; }
+
+  13.88889% {
+    left: 0%; }
+
+  16.66667% {
+    left: -100%; }
+
+  30.55556% {
+    left: -100%; }
+
+  33.33333% {
+    left: -200%; }
+
+  47.22222% {
+    left: -200%; }
+
+  50% {
+    left: -300%; }
+
+  63.88889% {
+    left: -300%; }
+
+  66.66667% {
+    left: -400%; }
+
+  80.55556% {
+    left: -400%; }
+
+  83.33333% {
+    left: -500%; }
+
+  97.22222% {
+    left: -500%; } }
+
+@-moz-keyframes slideranimation {
+  0%, 100% {
+    left: 0%; }
+
+  13.88889% {
+    left: 0%; }
+
+  16.66667% {
+    left: -100%; }
+
+  30.55556% {
+    left: -100%; }
+
+  33.33333% {
+    left: -200%; }
+
+  47.22222% {
+    left: -200%; }
+
+  50% {
+    left: -300%; }
+
+  63.88889% {
+    left: -300%; }
+
+  66.66667% {
+    left: -400%; }
+
+  80.55556% {
+    left: -400%; }
+
+  83.33333% {
+    left: -500%; }
+
+  97.22222% {
+    left: -500%; } }
+
+@-o-keyframes slideranimation {
+  0%, 100% {
+    left: 0%; }
+
+  13.88889% {
+    left: 0%; }
+
+  16.66667% {
+    left: -100%; }
+
+  30.55556% {
+    left: -100%; }
+
+  33.33333% {
+    left: -200%; }
+
+  47.22222% {
+    left: -200%; }
+
+  50% {
+    left: -300%; }
+
+  63.88889% {
+    left: -300%; }
+
+  66.66667% {
+    left: -400%; }
+
+  80.55556% {
+    left: -400%; }
+
+  83.33333% {
+    left: -500%; }
+
+  97.22222% {
+    left: -500%; } }
+
+@-ms-keyframes slideranimation {
+  0%, 100% {
+    left: 0%; }
+
+  13.88889% {
+    left: 0%; }
+
+  16.66667% {
+    left: -100%; }
+
+  30.55556% {
+    left: -100%; }
+
+  33.33333% {
+    left: -200%; }
+
+  47.22222% {
+    left: -200%; }
+
+  50% {
+    left: -300%; }
+
+  63.88889% {
+    left: -300%; }
+
+  66.66667% {
+    left: -400%; }
+
+  80.55556% {
+    left: -400%; }
+
+  83.33333% {
+    left: -500%; }
+
+  97.22222% {
+    left: -500%; } }
+
+@-khtml-keyframes slideranimation {
+  0%, 100% {
+    left: 0%; }
+
+  13.88889% {
+    left: 0%; }
+
+  16.66667% {
+    left: -100%; }
+
+  30.55556% {
+    left: -100%; }
+
+  33.33333% {
+    left: -200%; }
+
+  47.22222% {
+    left: -200%; }
+
+  50% {
+    left: -300%; }
+
+  63.88889% {
+    left: -300%; }
+
+  66.66667% {
+    left: -400%; }
+
+  80.55556% {
+    left: -400%; }
+
+  83.33333% {
+    left: -500%; }
+
+  97.22222% {
+    left: -500%; } }
+
+@keyframes slideranimation {
   0%, 100% {
     left: 0%; }
 
@@ -38,64 +238,150 @@
 
 html, body {
   height: 100%;
-  margin: 0px;
-  padding: 0px; }
+  padding: 0px;
+  margin: 0px; }
 
 section {
-  margin: 0 auto;
-  padding: 0;
   position: relative;
+  display: table;
+  overflow: hidden;
   width: 100%;
   min-height: 100%;
   height: 100%;
-  text-align: center;
-  overflow: hidden;
-  display: table; }
+  padding: 0;
+  margin: 0 auto;
+  text-align: center; }
   section .slider {
+    position: absolute;
+    display: block;
+    overflow: hidden;
     height: 100%; }
     section .slider .slides {
-      overflow: hidden;
       position: relative;
       float: left;
+      clear: both;
+      overflow: hidden;
       width: 600%;
       height: 100%;
-      animation: slideranimation 30s ease-out infinite;
-      -webkit-animation: slideranimation 30s ease-out infinite;
-      -moz-animation: slideranimation 30s ease-out infinite;
+      animation: slideranimation 36s ease-out infinite;
+      -webkit-animation: slideranimation 36s ease-out infinite;
+      -moz-animation: slideranimation 36s ease-out infinite;
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
       -moz-backface-visibility: hidden;
       -ms-backface-visibility: hidden; }
       section .slider .slides section {
-        width: 16.66677%;
         float: left;
-        display: table;
-        position: relative; }
-        section .slider .slides section .content:hover {
-          -webkit-animation-play-state: paused; }
+        width: 16.66677%; }
   section .content {
-    display: table-cell;
     vertical-align: middle;
+    display: table-cell;
+    box-sizing: border-box;
+    padding: 0 5%;
     text-align: center; }
 
-section#one {
-  background-color: #2C3E50; }
-section#two {
-  background-color: #FC4349; }
-section#three {
-  background-color: #6DBCDB; }
-section#four {
-  background-color: #D7DADB; }
-section#five {
-  background-color: #FFFFFF; }
-section#six {
-  background-color: #006266; }
-section .slider .slides section#one {
-  background: url("http://www.fillmurray.com/1500/1500") center center;
-  background-size: cover; }
-section .slider .slides section#two {
-  background: url("http://www.fillmurray.com/1400/1300") center center;
-  background-size: cover; }
-section .slider .slides section#five {
-  background: url("http://www.fillmurray.com/1200/1000") center center;
-  background-size: cover; }
+@font-face {
+  font-family: 'icomoon';
+  src: url("fonts/icomoon.eot");
+  src: url("fonts/icomoon.eot?#iefix") format("embedded-opentype"), url("fonts/icomoon.woff") format("woff"), url("fonts/icomoon.ttf") format("truetype"), url("fonts/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+  font-family: 'icomoon';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"] {
+*/
+.icon-github, .icon-twitter {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased; }
+
+.icon-github:before {
+  content: "\e000"; }
+
+.icon-twitter:before {
+  content: "\e001"; }
+
+h2 {
+  margin-top: 0px; }
+
+a {
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  border-bottom: 1px solid white;
+  line-height: 1; }
+  a.icon {
+    border-bottom: none; }
+
+i {
+  font-size: 80px; }
+
+section {
+  font-size: 30px;
+  color: white;
+  text-shadow: 0px -1px 0px #111111;
+  font-family: 'Open Sans', "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 400; }
+  section .content pre {
+    display: inline-block;
+    max-width: 80%;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word; }
+    section .content pre code {
+      width: 100%;
+      font-size: 20px;
+      text-align: left !important;
+      line-height: 20px;
+      float: left;
+      padding: 20px;
+      background: whitesmoke;
+      text-shadow: none;
+      color: black; }
+      section .content pre code .div {
+        color: limegreen; }
+      section .content pre code .class {
+        color: violet; }
+      section .content pre code .variable {
+        color: red; }
+      section .content pre code .comment {
+        color: slategray; }
+  section#one {
+    background-color: #2C3E50; }
+  section#two {
+    background-color: #FC4349; }
+  section#three {
+    background-color: #6DBCDB; }
+  section#four {
+    background-color: #00AA8F; }
+  section#five {
+    background-color: #FFFFFF; }
+  section#six {
+    background-color: #006266; }
+  section .slider .slides section#two {
+    background-color: #E6A73F; }
+  section .slider .slides section#five {
+    background: url("http://www.fillmurray.com/1200/1000") center center;
+    background-size: cover; }

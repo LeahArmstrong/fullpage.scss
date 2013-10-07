@@ -1,0 +1,117 @@
+/* 	FullPage.scss
+	Created by Dustin Armstrong
+	October 7, 2013
+
+	http://www.dustinarmstrong.com
+	http://www.github.com/dustinarmstrong */
+
+
+/* Uncomment the two lines below to use the variables inside the fullscreen.scss file, 
+or you may use them in your main/variables/mixins styles file. To import this stylesheet,
+just make sure it is in the same directory, and use @import "fullscreen"; */
+
+// $number: 6; // Set your number of slides
+// $animation_delay: 6; // Adjust your delay. It takes the number of slides and multiplies it by this variable in order to get full duration of the animation
+
+/* ------------------------------------ */
+/* DO NOT EDIT ANYTHING BELOW THIS LINE */
+/* DOING SO MAY BREAK THE CODE -------- */
+/* TRUST ME, IT'S VERY PICKY ---------- */
+/* ------------------------------------ */
+
+$percent: 100%/$number; // Creates the percentages for keyframes, and width of slides in slideshow
+$percent_persistent: $percent; // Needed for maintaining the original percentage for calculations
+$increment: 1; // Increments during keyframe calculations
+$duration: $animation_delay * $number; // Full duration of slides based on user set $animation_dleay and the number of slides
+
+/* Dynamically generates keyframes and pauses based on slides $number */
+@mixin keyframes {
+	0%, 100% {left: 0%;}
+	#{$percent / 1.2} {left: 0%;}
+	@while $percent < 100% {
+		#{$percent} { left: -100% * $increment; }
+		#{$percent + ($percent_persistent / 1.2%)} { left: -100% * $increment; }
+		$increment: $increment + 1;
+		$percent: $percent_persistent * $increment;
+	}
+	@if $percent == (100%/$number) {} // Checks to see if first time through calculation
+	@else {$percent: 100%/$number; $increment: 1;} // Resets percent and increment at end of calculation so the browserkeyframes run through the function with fresh numbers
+}
+
+@mixin browserkeyframes($name: slideranimation) {
+	@-webkit-keyframes #{$name} { @include keyframes; }
+	@-moz-keyframes #{$name} { @include keyframes; }
+	@-o-keyframes #{$name} { @include keyframes; }
+	@-ms-keyframes #{$name} { @include keyframes; }
+	@-khtml-keyframes #{$name} { @include keyframes; }
+	@keyframes #{$name} { @include keyframes; }
+}
+
+@mixin animation {
+	animation: slideranimation #{$duration}s ease-out infinite;
+		-webkit-animation: slideranimation #{$duration}s ease-out infinite;
+		-moz-animation: slideranimation #{$duration}s ease-out infinite;
+
+	backface-visibility: hidden; 
+		-webkit-backface-visibility: hidden;
+		-moz-backface-visibility: hidden;
+		-ms-backface-visibility: hidden;
+}
+
+@include browserkeyframes;
+
+html, body {
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+}
+
+section {
+	position: relative;
+
+	display: table;
+	overflow: hidden;
+	width: 100%;
+	min-height: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0 auto;
+
+	text-align: center;
+
+	.slider {
+		position: absolute; // Fix for FireFox height
+
+		display: block;
+		overflow: hidden;
+		height: 100%;
+		
+		.slides {
+			position: relative;
+			float: left;
+			clear: both;
+	
+			overflow: hidden;
+			width: 100%*$number;
+			height: 100%;
+
+			@include animation;
+
+			section {
+				float: left;
+		
+				width: $percent_persistent + .0001%; // Fixes edge of next slide showing in some ratios
+			}
+		}
+	}
+
+	.content {
+		vertical-align: middle;
+
+		display: table-cell;
+		box-sizing: border-box;
+		padding: 0 5%;
+
+		text-align: center;		
+	}
+}
