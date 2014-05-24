@@ -3,6 +3,9 @@ fullpage.scss
 
 An SCSS template for dynamically generating CSS ONLY slideshows and keyframes
 
+##Demo
+http://dustinarmstrong.github.io/fullpage.scss/
+
 ##How it do
 Fullpage.scss uses SASS/SCSS to create a CSS only slider. It only requires that you set up your HTML correctly and that you change 2 number variables in your fullpage.scss file, or put them in your own.
 
