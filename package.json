@@ -6,7 +6,7 @@
   "dependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
-    "gulp-ruby-sass": "^2.1.0",
+    "gulp-ruby-sass": "^2.1.0"
   },
   "devDependencies": {},
   "scripts": {
