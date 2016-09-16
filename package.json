@@ -1,0 +1,31 @@
+{
+  "name": "fullpage.scss",
+  "version": "1.0.0",
+  "description": "Full page CSS slider",
+  "main": "index.html",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-ruby-sass": "^2.1.0",
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DustinArmstrong/fullpage.scss.git"
+  },
+  "keywords": [
+    "css",
+    "scss",
+    "sass",
+    "slider"
+  ],
+  "author": "Dustin Armstrong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DustinArmstrong/fullpage.scss/issues"
+  },
+  "homepage": "https://github.com/DustinArmstrong/fullpage.scss#readme"
+}

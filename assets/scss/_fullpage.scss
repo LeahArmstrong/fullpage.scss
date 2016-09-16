@@ -6,7 +6,7 @@
 	http://www.github.com/dustinarmstrong */
 
 
-/* Uncomment the two lines below to use the variables inside the fullpage.scss file, 
+/* Uncomment the two lines below to use the variables inside the fullpage.scss file,
 or you may use them in your main/variables/mixins styles file. To import this stylesheet,
 just make sure it is in the same directory, and use @import "fullpage"; */
 
@@ -26,11 +26,11 @@ $duration: $animation_delay * $number; // Full duration of slides based on user 
 
 /* Dynamically generates keyframes and pauses based on slides $number */
 @mixin keyframes {
-	0%, 100% {left: 0%;}
-	#{$percent / 1.2} {left: 0%;}
+	0%, 100% {transform: translate3d(0%, 0, 0);}
+	#{$percent / 1.2} {transform: translate3d(0%, 0, 0);}
 	@while $percent < 100% {
-		#{$percent} { left: -100% * $increment; }
-		#{$percent + ($percent_persistent / 1.2%)} { left: -100% * $increment; }
+    #{$percent} { transform: translate3d(-$percent, 0, 0); }
+		#{$percent + ($percent_persistent / 1.2%)} { transform: translate3d(-$percent, 0, 0); }
 		$increment: $increment + 1;
 		$percent: $percent_persistent * $increment;
 	}
@@ -39,23 +39,12 @@ $duration: $animation_delay * $number; // Full duration of slides based on user 
 }
 
 @mixin browserkeyframes($name: slideranimation) {
-	@-webkit-keyframes #{$name} { @include keyframes; }
-	@-moz-keyframes #{$name} { @include keyframes; }
-	@-o-keyframes #{$name} { @include keyframes; }
-	@-ms-keyframes #{$name} { @include keyframes; }
-	@-khtml-keyframes #{$name} { @include keyframes; }
 	@keyframes #{$name} { @include keyframes; }
 }
 
 @mixin animation {
 	animation: slideranimation #{$duration}s ease-out infinite;
-		-webkit-animation: slideranimation #{$duration}s ease-out infinite;
-		-moz-animation: slideranimation #{$duration}s ease-out infinite;
-
-	backface-visibility: hidden; 
-		-webkit-backface-visibility: hidden;
-		-moz-backface-visibility: hidden;
-		-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
 }
 
 @include browserkeyframes;
@@ -85,12 +74,12 @@ section {
 		display: block;
 		overflow: hidden;
 		height: 100%;
-		
+
 		.slides {
 			position: relative;
 			float: left;
 			clear: both;
-	
+
 			overflow: hidden;
 			width: 100%*$number;
 			height: 100%;
@@ -99,7 +88,7 @@ section {
 
 			section {
 				float: left;
-		
+
 				width: $percent_persistent + .0001%; // Fixes edge of next slide showing in some ratios
 			}
 		}
@@ -112,6 +101,6 @@ section {
 		box-sizing: border-box;
 		padding: 0 5%;
 
-		text-align: center;		
+		text-align: center;
 	}
 }
